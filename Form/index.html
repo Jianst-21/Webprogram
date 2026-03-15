@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran Praktikan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <div class="badge">html+css</div>
+            <h2>Formulir Pendaftaran Praktikan</h2>
+        </div>
+        <div class="divider"></div>
+
+        <form action="#" method="POST">
+            <div class="field-group">
+
+                <div class="field">
+                    <label for="nama_id">Nama</label>
+                    <input type="text" name="nama_input" id="nama_id"
+                           placeholder="Input Nama"
+                           value="Aji Noto Sutrisno" readonly>
+                </div>
+
+                <div class="field">
+                    <label for="nim_id">NIM</label>
+                    <input type="text" name="nim_id" id="nim_id"
+                           placeholder="Input NIM"
+                           value="2311102262" readonly>
+                </div>
+
+                <div class="field">
+                    <label for="uname_id">Username</label>
+                    <input type="text" name="uname_input" id="uname_id"
+                           placeholder="Input Username">
+                </div>
+
+                <div class="field">
+                    <label for="password_id">Password</label>
+                    <input type="password" name="password_input" id="password_id"
+                           placeholder="Input Password">
+                </div>
+
+                <div class="field">
+                    <label for="email_id">Email</label>
+                    <input type="email" name="email_input" id="email_id"
+                           placeholder="Input Email">
+                </div>
+
+                <div class="field">
+                    <label>Jenis Kelamin</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="jk_input" id="pria" value="Pria">
+                            <label for="pria">Pria</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="jk_input" id="wanita" value="Wanita">
+                            <label for="wanita">Wanita</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Hobi</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="hobi_input" id="renang" value="Renang">
+                            <label for="renang">Renang</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="hobi_input" id="bersepeda" value="Bersepeda">
+                            <label for="bersepeda">Bersepeda</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="hobi_input" id="memancing" value="Memancing">
+                            <label for="memancing">Memancing</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="jp_id">Jenjang Pendidikan</label>
+                    <select name="jp_input" id="jp_id">
+                        <option value="" selected>------ Pilih ------</option>
+                        <option value="D3">Tamat D3</option>
+                        <option value="S1">Tamat S1</option>
+                        <option value="S2">Tamat S2</option>
+                        <option value="S3">Tamat S3</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="kritik_saran">Kritik &amp; Saran</label>
+                    <textarea id="kritik_saran" name="kritik_saran" rows="4"
+                              placeholder="Tulis kritik dan saran Anda di sini..."></textarea>
+                </div>
+
+            </div>
+
+            <div class="btn-row">
+                <button type="button" class="btn-cancel">Cancel</button>
+                <button type="submit" class="btn-submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

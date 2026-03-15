@@ -1,0 +1,274 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary: #5c35d6;
+    --primary-light: #7b5df7;
+    --accent: #00c8ff;
+    --bg: #0f0c1a;
+    --card: #1a1530;
+    --border: #2e2654;
+    --text: #e8e2ff;
+    --muted: #9b93c0;
+    --input-bg: #120f22;
+    --disabled: #1e1a30;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(ellipse at 20% 20%, rgba(92, 53, 214, 0.18) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 80%, rgba(0, 200, 255, 0.1) 0%, transparent 60%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 16px;
+    color: var(--text);
+}
+
+/* ── Card ── */
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px 44px;
+    width: 100%;
+    max-width: 520px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(123, 93, 247, 0.1);
+    animation: fadeUp 0.5s ease both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Header ── */
+.card-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.card-header .badge {
+    display: inline-block;
+    background: rgba(92, 53, 214, 0.25);
+    color: #a48fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 100px;
+    border: 1px solid rgba(92, 53, 214, 0.4);
+    margin-bottom: 12px;
+}
+
+h2 {
+    color: var(--text);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+    margin: 24px 0;
+}
+
+/* ── Fields ── */
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.3px;
+}
+
+/* ── Inputs ── */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 11px 14px;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 3px rgba(123, 93, 247, 0.2);
+}
+
+input[readonly] {
+    background: var(--disabled);
+    color: var(--muted);
+    cursor: not-allowed;
+    border-color: transparent;
+}
+
+input[disabled] {
+    background: var(--disabled);
+    color: #4a4570;
+    cursor: not-allowed;
+    border-color: transparent;
+}
+
+/* ── Select ── */
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239b93c0' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+}
+
+select option {
+    background: #1a1530;
+    color: var(--text);
+}
+
+/* ── Textarea ── */
+textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+/* ── Radio & Checkbox ── */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 2px;
+}
+
+.radio-item,
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    user-select: none;
+}
+
+.radio-item:hover,
+.checkbox-item:hover {
+    border-color: var(--primary-light);
+    background: rgba(92, 53, 214, 0.1);
+}
+
+.radio-item input,
+.checkbox-item input {
+    accent-color: var(--primary-light);
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.radio-item label,
+.checkbox-item label {
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 0;
+}
+
+/* ── Buttons ── */
+.btn-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.btn-cancel {
+    padding: 11px 24px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-cancel:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+    border-color: var(--muted);
+}
+
+.btn-submit {
+    padding: 11px 28px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(92, 53, 214, 0.4);
+    letter-spacing: 0.3px;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(92, 53, 214, 0.55);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+    .card {
+        padding: 28px 22px;
+    }
+}

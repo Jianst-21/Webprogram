@@ -1,0 +1,115 @@
+body {
+
+    height: 100vh;
+
+    background-image: url("Banyuwangi.jpg");
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: sans-serif;
+    color: white;
+
+}
+
+.glass-card {
+
+    width: 900px;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    backdrop-filter: blur(15px);
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+
+    padding: 40px;
+
+}
+
+.profile-img {
+
+    width: 120px;
+    height: 120px;
+
+    border-radius: 50%;
+
+    border: 3px solid white;
+
+    margin-bottom: 20px;
+
+}
+
+.left-section {
+
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+
+}
+
+.right-section {
+
+    padding-left: 30px;
+
+}
+
+.social-icons a{
+
+color:white;
+
+font-size:24px;
+
+margin:10px;
+
+text-decoration:none;
+
+transition:0.3s;
+
+}
+
+.social-icons a:hover{
+
+color:#0d6efd;
+
+transform:scale(1.2);
+
+}
+
+.location{
+opacity:0.8;
+font-size:14px;
+}
+
+.email{
+font-size:14px;
+opacity:0.8;
+}
+
+.divider{
+opacity:0.2;
+margin:20px 0;
+}
+
+.section{
+margin-bottom:30px;
+}
+
+.section h4{
+margin-bottom:15px;
+font-weight:600;
+}
+
+.about-text{
+text-align:justify;
+line-height:1.6;
+}
+
+.edu-list{
+padding-left:18px;
+line-height:1.8;
+}
