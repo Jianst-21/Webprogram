@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ramadan Mubarak 1446 H</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet"/>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ── SKY BACKGROUND ── -->
+  <div class="sky"></div>
+  <div class="bg-pattern"></div>
+
+  <!-- ── CANVAS LAYERS ── -->
+  <canvas id="stars-canvas"></canvas>
+  <canvas id="confetti-canvas"></canvas>
+
+
+    
+  <!-- ── MAIN CONTENT WRAPPER ── -->
+  <div class="wrapper">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="moon-wrap">
+        <div class="moon"></div>
+        <div class="moon-glow"></div>
+        <span class="star-deco">✦</span>
+        <span class="star-deco">✧</span>
+        <span class="star-deco">✦</span>
+      </div>
+      <h1 class="arabic-title">رمضان مبارك</h1>
+      <p class="sub-title">Ramadan Mubarak</p>
+      <span class="year-badge">1446 H &nbsp;·&nbsp; 2025 M</span>
+    </header>
+
+    <!-- COUNTDOWN -->
+    <section class="countdown-section">
+      <p class="countdown-label">⟡ Countdown Ramadan ⟡</p>
+      <div class="countdown-boxes">
+        <div class="cd-box">
+          <span class="cd-num" id="cd-h">00</span>
+          <span class="cd-unit">Hari</span>
+        </div>
+        <div class="cd-box">
+          <span class="cd-num" id="cd-j">00</span>
+          <span class="cd-unit">Jam</span>
+        </div>
+        <div class="cd-box">
+          <span class="cd-num" id="cd-m">00</span>
+          <span class="cd-unit">Menit</span>
+        </div>
+        <div class="cd-box">
+          <span class="cd-num" id="cd-s">00</span>
+          <span class="cd-unit">Detik</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORNAMENT -->
+    <div class="ornament">✦ ◆ ✦ ◆ ✦</div>
+
+
+    <!-- AYAT QUOTE -->
+    <div class="quote-block">
+      <p class="quote-arabic">شَهْرُ رَمَضَانَ الَّذِيْٓ اُنْزِلَ فِيْهِ الْقُرْاٰنُ</p>
+      <p class="quote-trans">"Bulan Ramadan adalah bulan yang di dalamnya diturunkan Al-Qur'an sebagai petunjuk bagi manusia..."</p>
+      <p class="quote-source">— QS. Al-Baqarah: 185</p>
+    </div>
+
+    <!-- THR BUTTON -->
+    <section class="thr-section">
+      <p class="thr-eyebrow"> Ada kejutan spesial untukmu hari ini</p>
+      <button class="btn-thr" id="btnTHR">
+        <span ></span>
+        Ambil THR-mu Sekarang!
+      </button>
+    </section>
+
+
+    <footer>© 1446 H · Ramadan Mubarak · Selamat Menunaikan Ibadah Puasa</footer>
+
+  </div><!-- /wrapper -->
+
+
+  <!-- ── MODAL THR ── -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box" id="modalBox">
+
+      <button class="modal-close" id="modalClose">✕</button>
+
+      <div class="modal-envelope"></div>
+      <h2 class="modal-title">Selamat!</h2>
+      <p class="modal-subtitle">✦ Anda Mendapatkan THR ✦</p>
+
+      <div class="modal-amount" id="thrAmount">Rp 0</div>
+      <p class="modal-amount-label">Total Tunjangan Hari Raya</p>
+
+      <p class="modal-msg">
+        Alhamdulillah kidss<br/>
+        <strong>THR Lebaran 1446 H</strong> telah siap untuk Anda.<br/>
+        Semoga membawa berkah dan kebahagiaan bagi keluarga tercinta.
+      </p>
+
+      <button class="btn-claim" id="btnClaim">
+         Bersyukur kidss &amp; Tutup
+      </button>
+
+    </div>
+  </div>
+
+
+  <!-- ── SCRIPTS ── -->
+  <!-- 1. jQuery CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!-- 2. Vanilla JS (Stars + Confetti engine) -->
+  <script src="main.js"></script>
+  <!-- 3. jQuery App (Countdown + Modal + THR) -->
+  <script src="jquery.app.js"></script>
+
+</body>
+</html>
