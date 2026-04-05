@@ -248,11 +248,8 @@ const Navbar = {
 
 ## Tautan Repositori
 
-  * **GitHub**: [Webprogram/Ramadhan at main · Jianst-21/Webprogram](https://www.google.com/search?q=https://github.com/Jianst-21/Webprogram)
+  * **GitHub**: [Webprogram/Tugas 2· Jianst-21/Webprogram][(https://www.google.com/search?q=https://github.com/Jianst-21/Webprogram)](https://github.com/Jianst-21/Webprogram/tree/main/Tugas2)
 
 <!-- end list -->
 
-```
 
-[cite_start]*(Catatan: Mengingat kode aslinya sangat panjang dan memakan ribuan baris[cite: 42, 44, 46, 49, 53, 60, 62, 64], saya merangkum sebagian representasi isi kode di bagian HTML dan JS agar `README` Anda tidak terlalu penuh hingga sulit di-*scroll* (menjaga prinsip* clean documentation*). Namun jika Anda membutuhkan seluruh sintaks penuhnya dimasukkan tanpa disingkat, Anda dapat menyalin file aslinya ke dalam kolom di antara tanda 
-```
