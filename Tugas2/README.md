@@ -261,5 +261,6 @@ const Navbar = {
 ## Tautan Repositori
 
   * **GitHub**: [Webprogram/Tugas 2· Jianst-21/Webprogram][(https://www.google.com/search?q=https://github.com/Jianst-21/Webprogram)](https://github.com/Jianst-21/Webprogram/tree/main/Tugas2)
+  * **GDrive**: [PPT & Vidio Presentasi][(Gdrive)](https://drive.google.com/drive/folders/1Y8G6YO3XTseQ-FJ9sZhuA7xqkbiy85A7?usp=sharing)
 
 <!-- end list -->

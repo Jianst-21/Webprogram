@@ -59,6 +59,18 @@
       "email": "Ghilll@gmail.com",
       "status": "Aktif",
       "createdAt": "2026-04-05T20:14:28.288Z"
+    },
+    {
+      "id": "621f9d71-4f5f-4390-986d-97aa514102a8",
+      "nim": "2311102264",
+      "nama": "Wafikkkk",
+      "prodi": "Sistem Informasi",
+      "angkatan": 2022,
+      "semester": 5,
+      "ipk": 3.93,
+      "email": "Wafikk@gmail.com",
+      "status": "Lulus",
+      "createdAt": "2026-04-05T22:00:03.385Z"
     }
   ]
 }
