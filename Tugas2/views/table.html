@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rekap Data Mahasiswa — SIAKAD</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap5.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+
+<div class="page-header">
+  <div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+      <div>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-1">
+            <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+            <li class="breadcrumb-item active">Rekap Data Mahasiswa</li>
+          </ol>
+        </nav>
+        <h2 class="page-title mb-0"><i class="fas fa-table me-2"></i>Rekap Data Mahasiswa</h2>
+      </div>
+      <a href="/form" class="btn btn-primary-custom">
+        <i class="fas fa-user-plus me-2"></i>Daftarkan Mahasiswa
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid px-4 py-4">
+  <div id="alertArea"></div>
+
+  <div class="card-modern">
+    <div class="card-modern-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+      <h5 class="mb-0"><i class="fas fa-database me-2 text-accent"></i>Tabel Data Mahasiswa</h5>
+      <div class="d-flex gap-2">
+        <button class="btn btn-sm btn-outline-secondary" id="btnRefresh" title="Muat ulang data">
+          <i class="fas fa-arrows-rotate me-1"></i>Muat Ulang
+        </button>
+      </div>
+    </div>
+    <div class="card-modern-body p-0">
+      <div class="table-responsive">
+        <table id="mahasiswaTable" class="table table-hover align-middle mb-0 w-100">
+          <thead>
+            <tr>
+              <th width="50">No</th>
+              <th>NIM</th>
+              <th>Nama Mahasiswa</th>
+              <th>Program Studi</th>
+              <th>Angkatan</th>
+              <th>Sem</th>
+              <th>IPK</th>
+              <th>Status</th>
+              <th width="110">Aksi</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Edit -->
+<div class="modal fade" id="editModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content modal-modern">
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="fas fa-pen-to-square me-2"></i>Edit Data Mahasiswa</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body p-4">
+        <div id="editAlertArea"></div>
+        <div class="row g-3">
+          <input type="hidden" id="editId">
+          <div class="col-md-6">
+            <label class="form-label fw-600">NIM <span class="text-danger">*</span></label>
+            <input type="text" class="form-control form-control-modern" id="editNim" placeholder="Contoh: 2022001">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label fw-600">Nama Lengkap <span class="text-danger">*</span></label>
+            <input type="text" class="form-control form-control-modern" id="editNama" placeholder="Nama lengkap mahasiswa">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label fw-600">Program Studi <span class="text-danger">*</span></label>
+            <select class="form-select form-control-modern" id="editProdi">
+              <option value="">Pilih Program Studi</option>
+              <option>Teknik Informatika</option>
+              <option>Sistem Informasi</option>
+              <option>Teknik Komputer</option>
+              <option>Ilmu Komputer</option>
+              <option>Rekayasa Perangkat Lunak</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label fw-600">Angkatan <span class="text-danger">*</span></label>
+            <select class="form-select form-control-modern" id="editAngkatan">
+              <option value="">Tahun</option>
+              <option>2020</option><option>2021</option><option>2022</option>
+              <option>2023</option><option>2024</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label fw-600">Semester <span class="text-danger">*</span></label>
+            <select class="form-select form-control-modern" id="editSemester">
+              <option value="">Pilih</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option>
+              <option>5</option><option>6</option><option>7</option><option>8</option>
+              <option>9</option><option>10</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label fw-600">IPK <span class="text-danger">*</span></label>
+            <input type="number" class="form-control form-control-modern" id="editIpk" min="0" max="4" step="0.01" placeholder="0.00">
+          </div>
+          <div class="col-md-8">
+            <label class="form-label fw-600">Alamat Email <span class="text-danger">*</span></label>
+            <input type="email" class="form-control form-control-modern" id="editEmail" placeholder="nim@mahasiswa.ac.id">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label fw-600">Status Akademik</label>
+            <select class="form-select form-control-modern" id="editStatus">
+              <option value="Aktif">Aktif</option>
+              <option value="Cuti">Cuti</option>
+              <option value="Lulus">Lulus</option>
+              <option value="Keluar">Keluar</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+        <button type="button" class="btn btn-primary-custom" id="btnSaveEdit">
+          <i class="fas fa-floppy-disk me-2"></i>Simpan Perubahan
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Konfirmasi Hapus -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content modal-modern">
+      <div class="modal-header border-0">
+        <h5 class="modal-title text-danger"><i class="fas fa-triangle-exclamation me-2"></i>Konfirmasi Hapus</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center py-3">
+        <div class="delete-icon-wrap mb-3"><i class="fas fa-trash-can"></i></div>
+        <p class="mb-1">Yakin hapus data mahasiswa:</p>
+        <strong id="deleteStudentName" class="text-accent"></strong>
+        <p class="text-muted small mt-2 mb-0">Data yang dihapus tidak bisa dikembalikan.</p>
+      </div>
+      <div class="modal-footer border-0 justify-content-center gap-2">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+        <button type="button" class="btn btn-danger" id="btnConfirmDelete">
+          <i class="fas fa-trash-can me-1"></i>Hapus
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer-section">
+  <div class="container text-center">
+    <p class="mb-0">© 2024 <strong>SIAKAD</strong> — Sistem Informasi Akademik | Tugas 2 Praktikum Pemrograman Web</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+<script src="/js/components/navbar.js"></script>
+<script src="/js/utils/api.js"></script>
+<script src="/js/pages/table.js"></script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftarkan Mahasiswa — SIAKAD</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+
+<div class="page-header">
+  <div class="container-fluid px-4">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-1">
+        <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+        <li class="breadcrumb-item"><a href="/data">Rekap Data</a></li>
+        <li class="breadcrumb-item active">Daftarkan Mahasiswa</li>
+      </ol>
+    </nav>
+    <h2 class="page-title mb-0"><i class="fas fa-user-plus me-2"></i>Formulir Pendaftaran Mahasiswa</h2>
+  </div>
+</div>
+
+<div class="container-fluid px-4 py-4">
+  <div class="row justify-content-center">
+    <div class="col-xl-8">
+      <div id="formAlertArea"></div>
+
+      <div class="card-modern">
+        <div class="card-modern-header">
+          <h5 class="mb-0"><i class="fas fa-file-pen me-2 text-accent"></i>Data Pendaftaran Mahasiswa Baru</h5>
+          <p class="text-muted small mb-0 mt-1">Isi semua field bertanda <span class="text-danger fw-bold">*</span> yang wajib diisi.</p>
+        </div>
+        <div class="card-modern-body p-4">
+          <form id="studentForm" novalidate>
+
+            <!-- Data Identitas -->
+            <div class="form-section mb-4">
+              <div class="form-section-title">
+                <i class="fas fa-id-card me-2"></i>Identitas Mahasiswa
+              </div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-600">NIM <span class="text-danger">*</span></label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
+                    <input type="text" class="form-control form-control-modern" id="nim" name="nim"
+                           placeholder="Contoh: 2022001" maxlength="10">
+                  </div>
+                  <div class="invalid-feedback" id="nimError"></div>
+                  <div class="form-text">Nomor Induk Mahasiswa, maks. 10 digit</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-600">Nama Lengkap <span class="text-danger">*</span></label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control form-control-modern" id="nama" name="nama"
+                           placeholder="Nama lengkap sesuai KTP">
+                  </div>
+                  <div class="invalid-feedback" id="namaError"></div>
+                </div>
+                <div class="col-md-12">
+                  <label class="form-label fw-600">Alamat Email <span class="text-danger">*</span></label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    <input type="email" class="form-control form-control-modern" id="email" name="email"
+                           placeholder="nim@mahasiswa.ac.id">
+                  </div>
+                  <div class="invalid-feedback" id="emailError"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Data Akademik -->
+            <div class="form-section mb-4">
+              <div class="form-section-title">
+                <i class="fas fa-book-open me-2"></i>Informasi Akademik
+              </div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-600">Program Studi <span class="text-danger">*</span></label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-sitemap"></i></span>
+                    <select class="form-select form-control-modern" id="prodi" name="prodi">
+                      <option value="">— Pilih Program Studi —</option>
+                      <option value="Teknik Informatika">Teknik Informatika</option>
+                      <option value="Sistem Informasi">Sistem Informasi</option>
+                      <option value="Teknik Komputer">Teknik Komputer</option>
+                      <option value="Ilmu Komputer">Ilmu Komputer</option>
+                      <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
+                    </select>
+                  </div>
+                  <div class="invalid-feedback" id="prodiError"></div>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label fw-600">Angkatan <span class="text-danger">*</span></label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                    <select class="form-select form-control-modern" id="angkatan" name="angkatan">
+                      <option value="">Tahun</option>
+                      <option>2020</option><option>2021</option><option>2022</option>
+                      <option>2023</option><option>2024</option>
+                    </select>
+                  </div>
+                  <div class="invalid-feedback" id="angkatanError"></div>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label fw-600">Semester <span class="text-danger">*</span></label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-layer-group"></i></span>
+                    <select class="form-select form-control-modern" id="semester" name="semester">
+                      <option value="">Pilih</option>
+                      <option>1</option><option>2</option><option>3</option><option>4</option>
+                      <option>5</option><option>6</option><option>7</option><option>8</option>
+                      <option>9</option><option>10</option>
+                    </select>
+                  </div>
+                  <div class="invalid-feedback" id="semesterError"></div>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label fw-600">IPK <span class="text-danger">*</span></label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-star-half-stroke"></i></span>
+                    <input type="number" class="form-control form-control-modern" id="ipk" name="ipk"
+                           min="0" max="4" step="0.01" placeholder="0.00">
+                  </div>
+                  <div class="invalid-feedback" id="ipkError"></div>
+                  <div class="form-text">Skala 0.00 – 4.00</div>
+                </div>
+                <div class="col-md-8">
+                  <label class="form-label fw-600">Status Akademik</label>
+                  <div class="d-flex gap-3 mt-2 flex-wrap" id="statusRadioGroup">
+                    <div class="form-check form-check-custom">
+                      <input class="form-check-input" type="radio" name="status" id="statusAktif" value="Aktif" checked>
+                      <label class="form-check-label" for="statusAktif"><span class="dot dot-green"></span> Aktif</label>
+                    </div>
+                    <div class="form-check form-check-custom">
+                      <input class="form-check-input" type="radio" name="status" id="statusCuti" value="Cuti">
+                      <label class="form-check-label" for="statusCuti"><span class="dot dot-orange"></span> Cuti</label>
+                    </div>
+                    <div class="form-check form-check-custom">
+                      <input class="form-check-input" type="radio" name="status" id="statusLulus" value="Lulus">
+                      <label class="form-check-label" for="statusLulus"><span class="dot dot-blue"></span> Lulus</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Preview Card -->
+            <div id="previewSection" class="preview-card mb-4" style="display:none">
+              <div class="preview-title"><i class="fas fa-eye me-2"></i>Pratinjau Data Mahasiswa</div>
+              <div class="row g-2 mt-1" id="previewContent"></div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="d-flex gap-3 justify-content-end flex-wrap">
+              <button type="button" class="btn btn-secondary" id="btnReset">
+                <i class="fas fa-rotate-left me-2"></i>Reset
+              </button>
+              <button type="button" class="btn btn-outline-primary-custom" id="btnPreview">
+                <i class="fas fa-eye me-2"></i>Pratinjau
+              </button>
+              <button type="submit" class="btn btn-primary-custom" id="btnSubmit">
+                <i class="fas fa-floppy-disk me-2"></i>Simpan
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="col-xl-4">
+      <div class="card-modern sticky-top" style="top: 80px;">
+        <div class="card-modern-header">
+          <h6 class="mb-0"><i class="fas fa-circle-info me-2 text-accent"></i>Petunjuk Pengisian</h6>
+        </div>
+        <div class="card-modern-body">
+          <div class="guide-item">
+            <div class="guide-icon"><i class="fas fa-hashtag"></i></div>
+            <div><strong>NIM</strong> — Nomor Induk Mahasiswa unik, hanya angka, maks. 10 digit.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-icon"><i class="fas fa-sitemap"></i></div>
+            <div><strong>Program Studi</strong> — Pilih program studi yang sedang ditempuh.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-icon"><i class="fas fa-calendar"></i></div>
+            <div><strong>Angkatan</strong> — Tahun pertama kali mahasiswa terdaftar.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-icon"><i class="fas fa-star-half-stroke"></i></div>
+            <div><strong>IPK</strong> — Indeks Prestasi Kumulatif dalam skala 0.00–4.00.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-icon"><i class="fas fa-circle-dot"></i></div>
+            <div><strong>Status</strong> — Pilih status akademik mahasiswa saat ini.</div>
+          </div>
+          <hr class="my-3">
+          <div class="d-grid">
+            <a href="/data" class="btn btn-outline-secondary btn-sm">
+              <i class="fas fa-list me-2"></i>Lihat Semua Data
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer-section">
+  <div class="container text-center">
+    <p class="mb-0">© 2024 <strong>SIAKAD</strong> — Sistem Informasi Akademik | Tugas 2 Praktikum Pemrograman Web</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+<script src="/js/components/navbar.js"></script>
+<script src="/js/utils/api.js"></script>
+<script src="/js/pages/form.js"></script>
+</body>
+</html>

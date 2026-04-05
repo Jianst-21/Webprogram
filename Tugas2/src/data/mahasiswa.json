@@ -1,0 +1,64 @@
+{
+  "mahasiswa": [
+    {
+      "id": "a1b2c3d4-0001-0001-0001-000000000001",
+      "nim": "2022001",
+      "nama": "Budi Santoso",
+      "prodi": "Teknik Informatika",
+      "angkatan": 2022,
+      "semester": 5,
+      "ipk": 3.75,
+      "email": "budi@student.ac.id",
+      "status": "Aktif",
+      "createdAt": "2024-01-10T08:00:00.000Z"
+    },
+    {
+      "id": "a1b2c3d4-0002-0002-0002-000000000002",
+      "nim": "2021002",
+      "nama": "Siti Rahayu",
+      "prodi": "Sistem Informasi",
+      "angkatan": 2021,
+      "semester": 7,
+      "ipk": 3.92,
+      "email": "siti@student.ac.id",
+      "status": "Aktif",
+      "createdAt": "2024-01-11T09:00:00.000Z"
+    },
+    {
+      "id": "a1b2c3d4-0003-0003-0003-000000000003",
+      "nim": "2020003",
+      "nama": "Ahmad Fauzi",
+      "prodi": "Teknik Komputer",
+      "angkatan": 2020,
+      "semester": 9,
+      "ipk": 3.45,
+      "email": "ahmad@student.ac.id",
+      "status": "Lulus",
+      "createdAt": "2024-01-12T10:00:00.000Z"
+    },
+    {
+      "id": "21ad2032-e71d-4358-8b43-4aaca8a2ddaa",
+      "nim": "2311102262",
+      "nama": "Aji Noto Sutrisno",
+      "prodi": "Teknik Informatika",
+      "angkatan": 2023,
+      "semester": 6,
+      "ipk": 3.83,
+      "email": "ajinotosutrisno212@gmail.com",
+      "status": "Aktif",
+      "createdAt": "2026-04-05T19:15:09.910Z"
+    },
+    {
+      "id": "e83cb616-73af-4b1d-860d-99544b5fd08d",
+      "nim": "2311102267",
+      "nama": "Ghilbran Alfaries Pryma",
+      "prodi": "Teknik Informatika",
+      "angkatan": 2023,
+      "semester": 6,
+      "ipk": 3.83,
+      "email": "Ghilll@gmail.com",
+      "status": "Aktif",
+      "createdAt": "2026-04-05T20:14:28.288Z"
+    }
+  ]
+}

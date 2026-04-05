@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIAKAD — Sistem Informasi Akademik</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+
+<!-- Hero Section -->
+<div class="hero-section">
+  <div class="hero-bg-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+  <div class="container py-5">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <div class="hero-badge mb-3 animate-fade-up">
+          <i class="fas fa-shield-halved me-2"></i>Platform Akademik Terintegrasi
+        </div>
+        <h1 class="hero-title animate-fade-up delay-1">Sistem Informasi <span class="text-accent">Akademik</span> Mahasiswa</h1>
+        <p class="hero-desc animate-fade-up delay-2">Kelola data akademik mahasiswa secara efisien dengan fitur CRUD lengkap, pencarian cepat, dan laporan statistik real-time berbasis JSON.</p>
+        <div class="d-flex gap-3 flex-wrap animate-fade-up delay-3">
+          <a href="/form" class="btn btn-hero-primary"><i class="fas fa-user-plus me-2"></i>Daftarkan Mahasiswa</a>
+          <a href="/data" class="btn btn-hero-outline"><i class="fas fa-table me-2"></i>Lihat Rekap Data</a>
+        </div>
+      </div>
+      <div class="col-lg-5 d-none d-lg-block text-center animate-fade-up delay-2">
+        <div class="hero-illustration">
+          <i class="fas fa-user-graduate"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Stats Cards -->
+<div class="container my-5">
+  <div class="row g-4" id="statsRow">
+    <div class="col-sm-6 col-xl-3">
+      <div class="stat-card stat-blue">
+        <div class="stat-icon"><i class="fas fa-users"></i></div>
+        <div class="stat-info">
+          <div class="stat-label">Total Mahasiswa</div>
+          <div class="stat-value" id="statTotal">—</div>
+        </div>
+        <div class="stat-bg-icon"><i class="fas fa-users"></i></div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+      <div class="stat-card stat-green">
+        <div class="stat-icon"><i class="fas fa-circle-check"></i></div>
+        <div class="stat-info">
+          <div class="stat-label">Mahasiswa Aktif</div>
+          <div class="stat-value" id="statAktif">—</div>
+        </div>
+        <div class="stat-bg-icon"><i class="fas fa-circle-check"></i></div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+      <div class="stat-card stat-orange">
+        <div class="stat-icon"><i class="fas fa-award"></i></div>
+        <div class="stat-info">
+          <div class="stat-label">Rata-rata IPK</div>
+          <div class="stat-value" id="statIpk">—</div>
+        </div>
+        <div class="stat-bg-icon"><i class="fas fa-award"></i></div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+      <div class="stat-card stat-purple">
+        <div class="stat-icon"><i class="fas fa-sitemap"></i></div>
+        <div class="stat-info">
+          <div class="stat-label">Program Studi</div>
+          <div class="stat-value" id="statProdi">—</div>
+        </div>
+        <div class="stat-bg-icon"><i class="fas fa-sitemap"></i></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Prodi Chart & Recent -->
+<div class="container mb-5">
+  <div class="row g-4">
+    <div class="col-lg-5">
+      <div class="card-modern h-100">
+        <div class="card-modern-header">
+          <h5><i class="fas fa-chart-bar me-2 text-accent"></i>Distribusi Program Studi</h5>
+        </div>
+        <div class="card-modern-body" id="prodiDistChart">
+          <div class="text-center py-4 text-muted"><i class="fas fa-spinner fa-spin me-2"></i>Memuat data...</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-7">
+      <div class="card-modern h-100">
+        <div class="card-modern-header d-flex justify-content-between align-items-center">
+          <h5><i class="fas fa-clock-rotate-left me-2 text-accent"></i>Pendaftaran Terbaru</h5>
+          <a href="/data" class="btn-link-accent">Lihat semua <i class="fas fa-arrow-right ms-1"></i></a>
+        </div>
+        <div class="card-modern-body" id="recentStudents">
+          <div class="text-center py-4 text-muted"><i class="fas fa-spinner fa-spin me-2"></i>Memuat data...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Feature Highlight -->
+<div class="container mb-5">
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="feature-card">
+        <div class="feature-icon feature-blue"><i class="fas fa-plus-circle"></i></div>
+        <h6 class="feature-title">Tambah Data</h6>
+        <p class="feature-desc">Daftarkan mahasiswa baru dengan formulir validasi lengkap dan preview sebelum simpan.</p>
+        <a href="/form" class="feature-link">Buka Form <i class="fas fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="feature-card">
+        <div class="feature-icon feature-green"><i class="fas fa-table-list"></i></div>
+        <h6 class="feature-title">Kelola Data</h6>
+        <p class="feature-desc">Tampilkan, edit, dan hapus data mahasiswa dengan tabel interaktif berbasis JSON DataTable.</p>
+        <a href="/data" class="feature-link">Lihat Tabel <i class="fas fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="feature-card">
+        <div class="feature-icon feature-orange"><i class="fas fa-chart-pie"></i></div>
+        <h6 class="feature-title">Statistik Langsung</h6>
+        <p class="feature-desc">Pantau distribusi program studi, rata-rata IPK, dan jumlah mahasiswa aktif secara real-time.</p>
+        <a href="#statsRow" class="feature-link">Lihat Statistik <i class="fas fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer-section">
+  <div class="container text-center">
+    <p class="mb-0">© 2024 <strong>SIAKAD</strong> — Sistem Informasi Akademik | Tugas 2 Praktikum Pemrograman Web</p>
+  </div>
+</footer>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+<script src="/js/components/navbar.js"></script>
+<script src="/js/utils/api.js"></script>
+<script src="/js/pages/index.js"></script>
+</body>
+</html>
