@@ -1,4 +1,5 @@
-Berikut adalah draf file `README.md` dalam format laporan teknis yang telah diperbarui dengan menyertakan seluruh kode sumber (source code) dari masing-masing bagian sistem beserta penjelasannya, tanpa menggunakan emotikon.
+AJI NOTO SUTRISNO
+2311102262
 
 ***
 
